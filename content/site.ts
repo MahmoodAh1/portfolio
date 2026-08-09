@@ -16,7 +16,7 @@ export const site = {
   description:
     "I build production AI systems — agents, data pipelines, and the software around them — for teams that need them to actually ship.",
   // Deployment URL (update to a custom domain when connected).
-  url: "https://mahmood-portfolio.vercel.app",
+  url: "https://portfolio-eight-tawny-94.vercel.app",
 
   // Contact
   email: "mahmoodahmad996@gmail.com",
