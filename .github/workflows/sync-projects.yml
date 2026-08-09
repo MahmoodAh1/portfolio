@@ -1,0 +1,57 @@
+name: Sync GitHub projects
+
+# Detects newly pushed public repos and opens a PR proposing them for the site.
+# Merge the PR to publish; close it to skip. Runs daily, or on demand right
+# after you push a new project (Actions tab → this workflow → "Run workflow").
+
+on:
+  schedule:
+    - cron: "0 8 * * *" # daily at 08:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-projects
+  cancel-in-progress: false
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Detect new projects
+        id: detect
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/detect-new-projects.mjs
+
+      - name: Open pull request
+        if: steps.detect.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: sync/new-projects
+          base: main
+          commit-message: "chore: add newly detected GitHub project(s)"
+          title: "New project(s) detected — review to publish"
+          labels: automation
+          delete-branch: true
+          body: |
+            Auto-detected new public repo(s) and added stub entries to
+            `content/projects.json`:
+
+            **${{ steps.detect.outputs.repos }}**
+
+            Each stub has TODO placeholders. Fill in **problem / solution / outcome /
+            role** (and tidy the tagline & category), then:
+
+            - ✅ **Merge** this PR to publish the project(s) to the site.
+            - ❌ **Close** it to skip them (add the repo name to `content/registry.json`
+              → `ignored` so they aren't proposed again).

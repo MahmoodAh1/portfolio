@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "catalogiq",
+    "repo": "catalogiq",
+    "featured": true,
+    "order": 1,
+    "title": "CatalogIQ",
+    "tagline": "Enterprise AI product-catalog intelligence.",
+    "category": "AI Data Pipeline",
+    "problem": "Enterprises drown in messy, inconsistent product-catalog data across suppliers — mismatched brands, duplicates, and missing attributes make it unusable for search, analytics, or storefronts.",
+    "solution": "A 10-stage pipeline — ingest, clean, brand-resolve, AI-extract, classify, dedup, validate, human-review — behind a FastAPI control plane with a Streamlit ops dashboard and Prometheus monitoring. LLM extraction is schema-validated with a human-in-the-loop review gate before anything is trusted.",
+    "outcome": "TODO: add a measurable result (e.g. cut catalog cleanup from days to minutes; NN% attribute-extraction accuracy at review).",
+    "role": "Solo architect & engineer — pipeline design, schema-validated AI extraction, FastAPI + Streamlit, observability.",
+    "highlights": [
+      "10-stage ingest → human-review pipeline",
+      "Schema-validated LLM extraction",
+      "Human-in-the-loop review gate",
+      "FastAPI control plane",
+      "Streamlit ops dashboard",
+      "Prometheus monitoring"
+    ],
+    "stack": ["Python", "FastAPI", "Streamlit", "LLMs", "Prometheus", "Docker"]
+  },
+  {
+    "slug": "nexguard",
+    "repo": "nexguard",
+    "featured": true,
+    "order": 2,
+    "title": "NexGuard",
+    "tagline": "AI security-operations platform — local-first.",
+    "category": "AI Security / MLOps",
+    "problem": "SOC teams face alert fatigue and opaque detections, and sending sensitive logs to a third-party cloud is a non-starter for many organizations.",
+    "solution": "Layered anomaly detection — DeepLog LSTM + Isolation Forest + an ensemble — with explainable alerts, a verified local-LLM incident-triage step, and a real-time SOC console. Runs fully local to stay privacy-preserving.",
+    "outcome": "TODO: add a measurable result (e.g. NN% reduction in false positives; sub-second detection latency).",
+    "role": "Solo architect & engineer — detection models, local-LLM triage, real-time console (Python + TypeScript).",
+    "highlights": [
+      "DeepLog LSTM + Isolation Forest ensemble",
+      "Explainable alerts",
+      "Verified local-LLM incident triage",
+      "Real-time SOC console",
+      "Local-first, privacy-preserving"
+    ],
+    "stack": ["Python", "PyTorch", "TypeScript", "LLMs", "Docker"]
+  },
+  {
+    "slug": "jarvis",
+    "repo": "jarvis-for-ahmad",
+    "featured": true,
+    "order": 3,
+    "title": "Jarvis",
+    "tagline": "Local-first, voice-driven AI desktop assistant.",
+    "category": "Agentic AI / Desktop",
+    "problem": "Cloud voice assistants are privacy-invasive, hard to extend, and can't safely touch your actual desktop, files, or workflows.",
+    "solution": "A local-first Windows assistant — an async, event-driven, plugin-based Python backend paired with a Tauri/React UI. Wake-word activation, streaming STT/TTS, long-term memory, OS automation, multi-agent orchestration, and vision.",
+    "outcome": "TODO: add a measurable result (e.g. NN plugins; end-to-end voice latency; tasks automated).",
+    "role": "Solo architect & engineer — agent orchestration, plugin system, Tauri/React UI, STT/TTS pipeline.",
+    "highlights": [
+      "Wake-word + streaming STT/TTS",
+      "Plugin-based, event-driven backend",
+      "Long-term memory",
+      "OS automation",
+      "Multi-agent orchestration",
+      "Vision + Tauri/React UI"
+    ],
+    "stack": ["Python", "Tauri", "React", "TypeScript", "Rust", "LLMs"]
+  }
+]
