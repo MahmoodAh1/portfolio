@@ -1,12 +1,19 @@
 "use client";
 
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { useReducedMotion } from "motion/react";
 import { Container } from "@/components/ui/Container";
 import { Scramble } from "@/components/fx/Scramble";
 import { SignalMesh } from "@/components/fx/SignalMesh";
 import { site, hasBooking } from "@/content/site";
 import { ArrowRight, ArrowUpRight, Calendar } from "@/components/ui/icons";
+
+// The WebGL scene is client-only and lazy-loaded; the 2D mesh is the fallback.
+const HeroScene = dynamic(() => import("@/components/fx/HeroScene"), {
+  ssr: false,
+  loading: () => <SignalMesh />,
+});
 
 const LEAD = ["I", "build"];
 const TAIL = ["that", "actually", "ship."];
@@ -19,6 +26,22 @@ const STATS: [string, string][] = [
 
 export function Hero() {
   const reduce = useReducedMotion();
+  const [scene, setScene] = useState<"2d" | "3d">("2d");
+
+  // Upgrade to the 3D scene only where WebGL is available and motion is allowed.
+  useEffect(() => {
+    if (reduce) return;
+    let supported = false;
+    try {
+      const canvas = document.createElement("canvas");
+      supported = Boolean(canvas.getContext("webgl2") || canvas.getContext("webgl"));
+    } catch {
+      supported = false;
+    }
+    if (!supported) return;
+    const id = requestAnimationFrame(() => setScene("3d"));
+    return () => cancelAnimationFrame(id);
+  }, [reduce]);
 
   useEffect(() => {
     let cancelled = false;
@@ -189,7 +212,7 @@ export function Hero() {
           </div>
 
           <div className="relative mx-auto aspect-square w-full max-w-md lg:max-w-none">
-            <SignalMesh />
+            {scene === "3d" ? <HeroScene /> : <SignalMesh />}
           </div>
         </div>
       </Container>
