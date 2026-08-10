@@ -10,7 +10,7 @@ export function Services() {
       <SectionHeading
         eyebrow="Services"
         title="What I build for clients"
-        description="Four ways I help teams get AI and software into production — with the discipline of someone who's shipped and maintained it."
+        description="Four ways I help teams get AI and software into production, with the discipline of someone who's shipped and maintained it."
       />
 
       <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
