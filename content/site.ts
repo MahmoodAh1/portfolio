@@ -26,8 +26,7 @@ export const site = {
   socials: [
     { label: "GitHub", url: "https://github.com/MahmoodAh1", handle: "MahmoodAh1" },
     { label: "Hugging Face", url: "https://huggingface.co/MahmoodAh1", handle: "MahmoodAh1" },
-    // TODO: add your X/Twitter handle to surface it in the socials row.
-    { label: "X", url: "", handle: "" },
+    { label: "X", url: "https://x.com/Ahmadtechai", handle: "Ahmadtechai" },
   ] satisfies SocialLink[],
 
   nav: [
