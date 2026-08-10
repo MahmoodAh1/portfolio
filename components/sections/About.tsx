@@ -28,23 +28,23 @@ export function About() {
           <div className="mt-6 space-y-4 leading-relaxed text-muted">
             <Reveal>
               <p>
-                I&apos;m {site.name} — an independent AI engineer. I design and ship
+                I&apos;m {site.name}  As an AI engineer at Tarquen AI,I design and ship
                 production AI systems: agents, data and content pipelines, and the
                 full-stack software that surrounds them.
               </p>
             </Reveal>
             <Reveal delay={0.05}>
               <p>
-                My bar is simple: build like a senior engineer. Deliberate model
+                My bar is simple: build like a senior engineer.Deliberate model
                 selection, schema-validated outputs, guardrails and evals, with cost
-                and latency treated as first-class constraints — not an afterthought
+                and latency treated as first-class constraints, not an afterthought
                 bolted on once it &quot;works once.&quot;
               </p>
             </Reveal>
             <Reveal delay={0.1}>
               <p>
                 I work across the stack — Python / FastAPI services and AI
-                orchestration, Next.js / MERN front ends — and take projects from
+                orchestration, Next.js / MERN front ends  and take projects from
                 architecture through to a deployed, monitored, maintainable system.
               </p>
             </Reveal>
