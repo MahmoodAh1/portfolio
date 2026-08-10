@@ -106,7 +106,7 @@ export function Hero() {
               style={{ opacity: 0 }}
             >
               <span className="text-accent">›</span>
-              <Scramble text={`${site.role.toLowerCase().replace(/\s+/g, "-")} · independent`} start="mount" />
+              <Scramble text={`${site.role.toLowerCase().replace(/\s+/g, "-")} · Tarquen AI`} start="mount" />
             </div>
 
             <h1 className="font-display mt-6 text-balance text-[2.6rem] font-semibold leading-[1.04] tracking-tight text-foreground sm:text-6xl md:text-[4.2rem]">
@@ -158,7 +158,7 @@ export function Hero() {
               style={{ opacity: 0 }}
             >
               Agentic systems, data and content pipelines, and the full-stack
-              software around them — designed, shipped, and maintained to a
+              software around them: designed, shipped, and maintained to a
               senior engineering bar.
             </p>
 
@@ -196,7 +196,7 @@ export function Hero() {
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
                 </span>
                 <span className="uppercase tracking-wider text-accent">available</span>
-                <span className="text-faint">for select client work</span>
+                <span className="text-faint">For Projects</span>
               </span>
               {STATS.slice(1).map(([k, v]) => (
                 <span
