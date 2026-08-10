@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useMotionValue, useSpring, useReducedMotion } from "motion/react";
 import type { Project } from "@/lib/types";
 import { Tag } from "@/components/ui/Tag";
 import { ArrowUpRight, ExternalLink, Github, Star } from "@/components/ui/icons";
@@ -12,20 +12,42 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
   const meta = project.github;
   const updated = timeAgo(meta?.pushedAt);
 
+  // Magnetic tilt toward the pointer.
+  const rx = useMotionValue(0);
+  const ry = useMotionValue(0);
+  const rotateX = useSpring(rx, { stiffness: 220, damping: 22 });
+  const rotateY = useSpring(ry, { stiffness: 220, damping: 22 });
+
+  const onMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (reduce) return;
+    const r = e.currentTarget.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    ry.set(px * 6);
+    rx.set(-py * 6);
+  };
+  const onLeave = () => {
+    rx.set(0);
+    ry.set(0);
+  };
+
   return (
     <motion.article
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
       whileHover={reduce ? undefined : { y: -6 }}
       transition={{ type: "spring", stiffness: 300, damping: 24 }}
-      className="group relative flex h-full flex-col rounded-xl border border-border bg-surface p-6 transition-colors duration-300 hover:border-accent/40 sm:p-7"
+      style={reduce ? undefined : { rotateX, rotateY, transformPerspective: 900 }}
+      className="grad-border group relative flex h-full flex-col rounded-xl border border-border bg-surface p-6 sm:p-7"
     >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{ boxShadow: "0 0 70px -24px var(--accent-glow)" }}
+        style={{ boxShadow: "0 0 80px -28px var(--accent-glow)" }}
       />
 
       <div className="flex items-center justify-between">
-        <span className="font-mono text-xs text-faint">
+        <span className="text-gradient font-mono text-sm font-semibold">
           {String(index + 1).padStart(2, "0")}
         </span>
         <div className="flex items-center gap-2.5 text-faint">
@@ -47,7 +69,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
           {project.category}
         </span>
-        <h3 className="mt-2 text-xl font-semibold text-foreground">
+        <h3 className="font-display mt-2 text-xl font-semibold text-foreground">
           <Link href={`/work/${project.slug}`} className="relative z-20 after:absolute after:inset-0">
             {project.title}
           </Link>

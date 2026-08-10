@@ -9,7 +9,7 @@ export function Contact() {
   return (
     <Section id="contact" className="border-t border-border/60">
       <Reveal>
-        <div className="relative overflow-hidden rounded-2xl border border-border bg-surface p-8 sm:p-12">
+        <div className="grad-border relative overflow-hidden rounded-2xl bg-surface p-8 sm:p-12">
           <div aria-hidden className="pointer-events-none absolute inset-0 grid-backdrop opacity-70" />
           <div
             aria-hidden
@@ -19,7 +19,7 @@ export function Contact() {
 
           <div className="relative max-w-2xl">
             <Eyebrow>Contact</Eyebrow>
-            <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="font-display mt-4 text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
               Have a system that needs to ship?
             </h2>
             <p className="mt-4 text-pretty leading-relaxed text-muted">
@@ -35,7 +35,7 @@ export function Contact() {
                     href={site.bookingUrl}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-bg shadow-[0_0_34px_-10px_var(--accent-glow)] transition-colors hover:bg-accent-bright"
+                    className="btn-grad inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold shadow-[0_0_34px_-10px_var(--accent-glow)]"
                   >
                     <Calendar width={16} height={16} />
                     Book a call
@@ -51,7 +51,7 @@ export function Contact() {
               ) : (
                 <a
                   href={`mailto:${site.email}`}
-                  className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-bg shadow-[0_0_34px_-10px_var(--accent-glow)] transition-colors hover:bg-accent-bright"
+                  className="btn-grad inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold shadow-[0_0_34px_-10px_var(--accent-glow)]"
                 >
                   <Mail width={16} height={16} />
                   Email me

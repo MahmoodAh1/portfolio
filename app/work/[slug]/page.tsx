@@ -81,7 +81,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                 </span>
               </Reveal>
               <Reveal delay={0.05}>
-                <h1 className="mt-4 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+                <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
                   {project.title}
                 </h1>
               </Reveal>
@@ -211,7 +211,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                 </div>
                 <Link
                   href="/#contact"
-                  className="inline-flex shrink-0 items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-bg transition-colors hover:bg-accent-bright"
+                  className="btn-grad inline-flex shrink-0 items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold"
                 >
                   Get in touch
                   <ArrowUpRight width={16} height={16} />

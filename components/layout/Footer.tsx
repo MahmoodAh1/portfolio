@@ -5,15 +5,15 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-surface/40">
+    <footer className="relative z-10 border-t border-border bg-surface/40">
       <Container>
         <div className="flex flex-col gap-8 py-12 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-sm">
             <div className="flex items-center gap-2.5">
-              <span className="grid h-8 w-8 place-items-center rounded-md border border-border bg-surface font-mono text-sm font-semibold text-accent">
+              <span className="grad-border grid h-8 w-8 place-items-center rounded-md bg-surface font-mono text-sm font-semibold text-accent">
                 MA
               </span>
-              <span className="text-sm font-medium text-foreground">{site.name}</span>
+              <span className="font-display text-sm font-medium text-foreground">{site.name}</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-muted">{site.description}</p>
           </div>

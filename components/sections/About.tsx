@@ -52,8 +52,8 @@ export function About() {
 
           <div className="mt-10 grid grid-cols-3 gap-4">
             {STATS.map((s) => (
-              <Reveal key={s.label} className="rounded-lg border border-border bg-surface p-4">
-                <div className="font-mono text-3xl font-semibold text-accent">
+              <Reveal key={s.label} className="grad-border rounded-lg bg-surface p-4">
+                <div className="text-gradient font-mono text-3xl font-semibold">
                   <CountUp value={s.value} suffix={s.suffix} />
                 </div>
                 <div className="mt-1.5 text-xs leading-snug text-muted">{s.label}</div>
@@ -64,7 +64,7 @@ export function About() {
 
         <div className="lg:pt-2">
           <Reveal>
-            <div className="rounded-xl border border-border bg-surface p-7 sm:p-8">
+            <div className="grad-border rounded-xl bg-surface p-7 sm:p-8">
               <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
                 How I work
               </h3>

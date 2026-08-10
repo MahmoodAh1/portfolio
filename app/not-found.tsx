@@ -14,7 +14,7 @@ export default function NotFound() {
             <span className="font-mono text-sm uppercase tracking-[0.2em] text-accent">
               404
             </span>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+            <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
               Page not found
             </h1>
             <p className="mt-4 leading-relaxed text-muted">
@@ -22,7 +22,7 @@ export default function NotFound() {
             </p>
             <Link
               href="/"
-              className="group mt-8 inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-bg transition-colors hover:bg-accent-bright"
+              className="btn-grad group mt-8 inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold"
             >
               <ArrowLeft
                 width={16}

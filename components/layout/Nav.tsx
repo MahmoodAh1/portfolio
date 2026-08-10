@@ -43,10 +43,10 @@ export function Nav() {
       <Container>
         <nav className="flex h-16 items-center justify-between">
           <Link href="/" className="group flex items-center gap-2.5" aria-label={site.name}>
-            <span className="grid h-8 w-8 place-items-center rounded-md border border-border bg-surface font-mono text-sm font-semibold text-accent transition-colors group-hover:border-accent/50">
+            <span className="grad-border grid h-8 w-8 place-items-center rounded-md bg-surface font-mono text-sm font-semibold text-accent">
               MA
             </span>
-            <span className="hidden text-sm font-medium tracking-tight text-foreground sm:block">
+            <span className="font-display hidden text-sm font-medium tracking-tight text-foreground sm:block">
               {site.name}
             </span>
           </Link>
@@ -67,7 +67,7 @@ export function Nav() {
             <Link
               href={ctaHref}
               {...(hasBooking ? { target: "_blank", rel: "noreferrer noopener" } : {})}
-              className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-semibold text-bg shadow-[0_0_30px_-10px_var(--accent-glow)] transition-colors hover:bg-accent-bright"
+              className="btn-grad inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold shadow-[0_0_30px_-10px_var(--accent-glow)]"
             >
               <Calendar width={15} height={15} />
               {ctaLabel}
@@ -111,7 +111,7 @@ export function Nav() {
                   href={ctaHref}
                   {...(hasBooking ? { target: "_blank", rel: "noreferrer noopener" } : {})}
                   onClick={() => setOpen(false)}
-                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-accent px-4 py-3 text-sm font-semibold text-bg"
+                  className="btn-grad mt-2 inline-flex items-center justify-center gap-2 rounded-md px-4 py-3 text-sm font-semibold"
                 >
                   <Calendar width={15} height={15} />
                   {ctaLabel}
