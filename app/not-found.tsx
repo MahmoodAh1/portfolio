@@ -11,7 +11,7 @@ export default function NotFound() {
       <main className="flex flex-1 items-center py-32">
         <Container>
           <div className="max-w-xl">
-            <span className="font-mono text-sm uppercase tracking-[0.2em] text-accent">
+            <span className="font-mono text-sm uppercase tracking-[0.2em] text-signal">
               404
             </span>
             <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
@@ -22,7 +22,7 @@ export default function NotFound() {
             </p>
             <Link
               href="/"
-              className="btn-grad group mt-8 inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold"
+              className="btn-signal group mt-8 inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold"
             >
               <ArrowLeft
                 width={16}

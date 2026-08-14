@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Oswald, Archivo, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
@@ -59,13 +59,17 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#0a0b0d",
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
       className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-bg text-foreground selection:text-white">
+      <body className="min-h-full flex flex-col bg-bg text-foreground">
         {/*
           Resilience: anime.js (hero) and Motion (scroll reveals) render initial
           `opacity:0` inline styles on the server. Without JS those would stay
