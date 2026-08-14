@@ -12,7 +12,7 @@ export function Work({ projects }: { projects: Project[] }) {
       <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
         <SectionHeading
           eyebrow="Selected work"
-          title="Systems I've shipped"
+          title="Case Files"
           description="Real projects, pulled live from GitHub. Each one is production-shaped — models and pipelines with the software and observability around them."
         />
         <Reveal className="hidden sm:block">
@@ -20,7 +20,7 @@ export function Work({ projects }: { projects: Project[] }) {
             href={`https://github.com/${site.socials[0]?.handle ?? ""}`}
             target="_blank"
             rel="noreferrer noopener"
-            className="group inline-flex shrink-0 items-center gap-1.5 text-sm text-muted transition-colors hover:text-accent"
+            className="group inline-flex shrink-0 items-center gap-1.5 text-sm text-muted transition-colors hover:text-signal"
           >
             All repositories
             <ArrowUpRight

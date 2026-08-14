@@ -5,13 +5,14 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { site, hasBooking } from "@/content/site";
 import { Container } from "@/components/ui/Container";
+import { MarkLogo } from "@/components/fx/MarkLogo";
 import { cn } from "@/lib/cn";
 import { Calendar, Close, Menu } from "@/components/ui/icons";
 
 const ctaHref = hasBooking ? site.bookingUrl : "#contact";
 const ctaLabel = hasBooking ? "Book a call" : "Get in touch";
 
-export function Nav() {
+export function Nav({ logoSrc }: { logoSrc?: string | null }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const reduce = useReducedMotion();
@@ -43,8 +44,8 @@ export function Nav() {
       <Container>
         <nav className="flex h-16 items-center justify-between">
           <Link href="/" className="group flex items-center gap-2.5" aria-label={site.name}>
-            <span className="grad-border grid h-8 w-8 place-items-center rounded-md bg-surface font-mono text-sm font-semibold text-accent">
-              MA
+            <span className="hairline grid h-8 w-8 place-items-center rounded-md bg-surface p-1.5 text-signal">
+              <MarkLogo src={logoSrc} className="h-full w-full" />
             </span>
             <span className="font-display hidden text-sm font-medium tracking-tight text-foreground sm:block">
               {site.name}
@@ -67,7 +68,7 @@ export function Nav() {
             <Link
               href={ctaHref}
               {...(hasBooking ? { target: "_blank", rel: "noreferrer noopener" } : {})}
-              className="btn-grad inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold shadow-[0_0_30px_-10px_var(--accent-glow)]"
+              className="btn-signal inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold"
             >
               <Calendar width={15} height={15} />
               {ctaLabel}
@@ -111,7 +112,7 @@ export function Nav() {
                   href={ctaHref}
                   {...(hasBooking ? { target: "_blank", rel: "noreferrer noopener" } : {})}
                   onClick={() => setOpen(false)}
-                  className="btn-grad mt-2 inline-flex items-center justify-center gap-2 rounded-md px-4 py-3 text-sm font-semibold"
+                  className="btn-signal mt-2 inline-flex items-center justify-center gap-2 rounded-md px-4 py-3 text-sm font-semibold"
                 >
                   <Calendar width={15} height={15} />
                   {ctaLabel}
