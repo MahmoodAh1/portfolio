@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Manrope, JetBrains_Mono } from "next/font/google";
+import { Oswald, Archivo, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
 
-const displayFont = Space_Grotesk({
-  variable: "--font-space-grotesk",
+// Chiselled, architectural display face for the Dark-Knight headers.
+const displayFont = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
 });
 
-const bodyFont = Manrope({
-  variable: "--font-manrope",
+const bodyFont = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
