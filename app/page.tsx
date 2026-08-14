@@ -1,4 +1,5 @@
 import { getProjects } from "@/lib/github";
+import { resolveAsset, AVATAR_URL } from "@/lib/assets";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
@@ -31,6 +32,8 @@ const MARQUEE = [
 
 export default async function Home() {
   const projects = await getProjects();
+  const cowlSrc = resolveAsset("cowl");
+  const portraitSrc = resolveAsset("portrait") ?? AVATAR_URL;
 
   return (
     <>
@@ -39,7 +42,7 @@ export default async function Home() {
       <CursorAura />
       <Nav />
       <main className="relative z-10 flex-1">
-        <Hero />
+        <Hero cowlSrc={cowlSrc} portraitSrc={portraitSrc} />
         <Marquee items={MARQUEE} />
         <Services />
         <Work projects={projects} />

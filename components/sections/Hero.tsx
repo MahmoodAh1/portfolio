@@ -5,43 +5,35 @@ import dynamic from "next/dynamic";
 import { useReducedMotion } from "motion/react";
 import { Container } from "@/components/ui/Container";
 import { Scramble } from "@/components/fx/Scramble";
-import { SignalMesh } from "@/components/fx/SignalMesh";
+import { RevealFallback } from "@/components/fx/RevealFallback";
+import { useWebGL } from "@/components/three/useWebGL";
 import { site, hasBooking } from "@/content/site";
 import { ArrowRight, ArrowUpRight, Calendar } from "@/components/ui/icons";
 
-// The WebGL scene is client-only and lazy-loaded; the 2D mesh is the fallback.
-const HeroScene = dynamic(() => import("@/components/fx/HeroScene"), {
+// The WebGL cowl reveal is client-only and lazy; the CSS mask reveal is the fallback.
+const HeroReveal = dynamic(() => import("@/components/three/HeroReveal"), {
   ssr: false,
-  loading: () => <SignalMesh />,
 });
 
 const LEAD = ["I", "build"];
 const TAIL = ["that", "actually", "ship."];
 
 const STATS: [string, string][] = [
-  ["status", "available"],
   ["response", "< 24h"],
   ["mode", "remote · worldwide"],
 ];
 
-export function Hero() {
+export function Hero({
+  cowlSrc,
+  portraitSrc,
+}: {
+  cowlSrc: string | null;
+  portraitSrc: string;
+}) {
   const reduce = useReducedMotion();
-  const [scene, setScene] = useState<"2d" | "3d">("2d");
-
-  // Upgrade to the 3D scene only where WebGL is available and motion is allowed.
-  useEffect(() => {
-    if (reduce) return;
-    let supported = false;
-    try {
-      const canvas = document.createElement("canvas");
-      supported = Boolean(canvas.getContext("webgl2") || canvas.getContext("webgl"));
-    } catch {
-      supported = false;
-    }
-    if (!supported) return;
-    const id = requestAnimationFrame(() => setScene("3d"));
-    return () => cancelAnimationFrame(id);
-  }, [reduce]);
+  const { enabled } = useWebGL();
+  const [portraitError, setPortraitError] = useState(false);
+  const use3D = enabled && !portraitError;
 
   useEffect(() => {
     let cancelled = false;
@@ -84,32 +76,21 @@ export function Hero() {
     : { href: "#contact", label: "Start a project", external: false, icon: <ArrowRight width={16} height={16} /> };
 
   return (
-    <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
-      {/* Backdrop: grid + dual aurora for color presence */}
+    <section id="reveal" className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 grid-backdrop" />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 top-0 -z-10 h-[460px] w-[560px] rounded-full blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(45,224,212,0.16), transparent 72%)" }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute right-0 top-40 -z-10 h-[520px] w-[620px] rounded-full blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(155,140,255,0.16), transparent 72%)" }}
-      />
 
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <div
               className="hero-anim hero-eyebrow inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 font-mono text-xs text-muted backdrop-blur"
               style={{ opacity: 0 }}
             >
-              <span className="text-accent">›</span>
+              <span className="text-signal">◆</span>
               <Scramble text={`${site.role.toLowerCase().replace(/\s+/g, "-")} · independent`} start="mount" />
             </div>
 
-            <h1 className="font-display mt-6 text-balance text-[2.6rem] font-semibold leading-[1.04] tracking-tight text-foreground sm:text-6xl md:text-[4.2rem]">
+            <h1 className="font-display mt-6 text-balance text-[2.6rem] font-semibold uppercase leading-[1.02] tracking-tight text-foreground sm:text-6xl md:text-[4.1rem]">
               {LEAD.map((w) => (
                 <Fragment key={w}>
                   <span className="hero-anim hero-word inline-block" style={{ opacity: 0 }}>
@@ -118,7 +99,7 @@ export function Hero() {
                 </Fragment>
               ))}
               <span className="relative inline-block">
-                <span className="hero-anim hero-word text-gradient inline-block" style={{ opacity: 0 }}>
+                <span className="hero-anim hero-word beam-text inline-block text-signal" style={{ opacity: 0 }}>
                   production AI systems
                 </span>
                 <svg
@@ -127,18 +108,11 @@ export function Hero() {
                   preserveAspectRatio="none"
                   aria-hidden
                 >
-                  <defs>
-                    <linearGradient id="hero-underline-grad" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0" stopColor="#2de0d4" />
-                      <stop offset="0.55" stopColor="#4c86ff" />
-                      <stop offset="1" stopColor="#9b8cff" />
-                    </linearGradient>
-                  </defs>
                   <path
                     className="hero-underline"
                     d="M2 6 C 70 1, 230 1, 298 6"
                     fill="none"
-                    stroke="url(#hero-underline-grad)"
+                    stroke="#f2b43a"
                     strokeWidth="2.5"
                     strokeLinecap="round"
                   />
@@ -158,7 +132,7 @@ export function Hero() {
               style={{ opacity: 0 }}
             >
               Agentic systems, data and content pipelines, and the full-stack
-              software around them — designed, shipped, and maintained to a
+              software around them — designed, shipped, and kept running to a
               senior engineering bar.
             </p>
 
@@ -166,7 +140,7 @@ export function Hero() {
               <a
                 href={primary.href}
                 {...(primary.external ? { target: "_blank", rel: "noreferrer noopener" } : {})}
-                className="hero-anim hero-cta btn-grad inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold shadow-[0_0_40px_-12px_var(--accent-glow)] transition-shadow duration-200 hover:shadow-[0_0_48px_-8px_var(--accent-glow)]"
+                className="hero-anim hero-cta btn-signal inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold"
                 style={{ opacity: 0 }}
               >
                 {primary.icon}
@@ -174,7 +148,7 @@ export function Hero() {
               </a>
               <a
                 href="#work"
-                className="hero-anim hero-cta grad-border group inline-flex items-center justify-center gap-2 rounded-md border border-border bg-surface/60 px-5 py-3 text-sm text-foreground transition-colors duration-200 hover:text-accent"
+                className="hero-anim hero-cta grad-border group inline-flex items-center justify-center gap-2 rounded-md border border-border bg-surface/60 px-5 py-3 text-sm text-foreground transition-colors duration-200 hover:text-signal"
                 style={{ opacity: 0 }}
               >
                 View work
@@ -192,13 +166,13 @@ export function Hero() {
                 style={{ opacity: 0 }}
               >
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-breathe absolute inline-flex h-full w-full rounded-full bg-accent" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                  <span className="animate-breathe absolute inline-flex h-full w-full rounded-full bg-signal" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-signal" />
                 </span>
-                <span className="uppercase tracking-wider text-accent">available</span>
+                <span className="uppercase tracking-wider text-signal">available</span>
                 <span className="text-faint">for select client work</span>
               </span>
-              {STATS.slice(1).map(([k, v]) => (
+              {STATS.map(([k, v]) => (
                 <span
                   key={k}
                   className="hero-anim hero-stat inline-flex items-center gap-2 text-faint"
@@ -211,8 +185,27 @@ export function Hero() {
             </div>
           </div>
 
+          {/* The reveal — cowl over portrait, cursor is the bat-signal */}
           <div className="relative mx-auto aspect-square w-full max-w-md lg:max-w-none">
-            {scene === "3d" ? <HeroScene /> : <SignalMesh />}
+            <div className="panel perspure relative h-full w-full overflow-hidden rounded-2xl">
+              {use3D ? (
+                <HeroReveal
+                  portraitSrc={portraitSrc}
+                  cowlSrc={cowlSrc}
+                  onPortraitError={() => setPortraitError(true)}
+                />
+              ) : (
+                <RevealFallback portraitSrc={portraitSrc} />
+              )}
+
+              {/* Dossier corner labels */}
+              <div className="pointer-events-none absolute inset-0 p-4 font-mono text-[10px] uppercase tracking-widest text-faint">
+                <span className="absolute left-4 top-4">subject</span>
+                <span className="absolute right-4 top-4 text-signal">status: active</span>
+                <span className="absolute bottom-4 left-4 text-muted">M. A. Sajjad</span>
+                <span className="absolute bottom-4 right-4 animate-breathe">move to reveal</span>
+              </div>
+            </div>
           </div>
         </div>
       </Container>
