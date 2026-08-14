@@ -9,6 +9,7 @@ import { Contact } from "@/components/sections/Contact";
 import { CursorAura } from "@/components/fx/CursorAura";
 import { ScrollProgress } from "@/components/fx/ScrollProgress";
 import { Marquee } from "@/components/fx/Marquee";
+import AtmosphereMount from "@/components/three/AtmosphereMount";
 
 // Re-fetch live GitHub metadata at most once per hour (ISR).
 export const revalidate = 3600;
@@ -33,6 +34,7 @@ export default async function Home() {
 
   return (
     <>
+      <AtmosphereMount />
       <ScrollProgress />
       <CursorAura />
       <Nav />
