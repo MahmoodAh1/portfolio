@@ -32,7 +32,7 @@ export function Contact() {
             </h2>
             <p className="mt-4 text-pretty leading-relaxed text-muted">
               Tell me what you&apos;re building. I&apos;ll come back with the smallest,
-              most reliable way to get it into production — and what it&apos;ll cost in
+              most reliable way to get it into production and what it&apos;ll cost in
               time and latency.
             </p>
 

@@ -87,7 +87,7 @@ export function Hero({
               style={{ opacity: 0 }}
             >
               <span className="text-signal">◆</span>
-              <Scramble text={`${site.role.toLowerCase().replace(/\s+/g, "-")} · independent`} start="mount" />
+              <Scramble text={`${site.role.toLowerCase().replace(/\s+/g, "-")} · Tarquen AI`} start="mount" />
             </div>
 
             <h1 className="font-display mt-6 text-balance text-[2.6rem] font-semibold uppercase leading-[1.02] tracking-tight text-foreground sm:text-6xl md:text-[4.1rem]">
@@ -170,7 +170,7 @@ export function Hero({
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-signal" />
                 </span>
                 <span className="uppercase tracking-wider text-signal">available</span>
-                <span className="text-faint">for select client work</span>
+                <span className="text-faint">for new projects</span>
               </span>
               {STATS.map(([k, v]) => (
                 <span
