@@ -10,6 +10,7 @@ import { Showcase } from "@/components/sections/Showcase";
 import { Contact } from "@/components/sections/Contact";
 import { CursorAura } from "@/components/fx/CursorAura";
 import { ScrollProgress } from "@/components/fx/ScrollProgress";
+import { SmoothScroll } from "@/components/fx/SmoothScroll";
 import { Marquee } from "@/components/fx/Marquee";
 import AtmosphereMount from "@/components/three/AtmosphereMount";
 
@@ -36,9 +37,11 @@ export default async function Home() {
   const cowlSrc = resolveAsset("cowl");
   const portraitSrc = resolveAsset("portrait") ?? AVATAR_URL;
   const logoSrc = resolveAsset("logo");
+  const vehicleSrc = resolveAsset("vehicle");
 
   return (
     <>
+      <SmoothScroll />
       <AtmosphereMount />
       <ScrollProgress />
       <CursorAura />
@@ -49,7 +52,7 @@ export default async function Home() {
         <Skills />
         <Services />
         <Work projects={projects} />
-        <Showcase />
+        <Showcase vehicleSrc={vehicleSrc} />
         <Contact />
       </main>
       <Footer />

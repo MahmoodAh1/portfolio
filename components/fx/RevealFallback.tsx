@@ -57,7 +57,7 @@ export function RevealFallback({ portraitSrc }: { portraitSrc: string }) {
     : "radial-gradient(circle 120px at var(--mx, 50%) var(--my, 42%), transparent 0%, transparent 34%, #000 62%)";
 
   return (
-    <div ref={root} className="relative h-full w-full overflow-hidden rounded-xl">
+    <div ref={root} className="relative h-full w-full overflow-hidden">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={portraitSrc}

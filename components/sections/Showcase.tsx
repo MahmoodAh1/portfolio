@@ -12,7 +12,7 @@ const VehicleScene = dynamic(() => import("@/components/three/Vehicle"), { ssr: 
  * tall section with a sticky canvas. The 3D scene mounts only when the section
  * is near the viewport (perf), and falls back to a static silhouette otherwise.
  */
-export function Showcase() {
+export function Showcase({ vehicleSrc }: { vehicleSrc: string | null }) {
   const { enabled } = useWebGL();
   const sectionRef = useRef<HTMLDivElement>(null);
   const progress = useRef(0);
@@ -50,7 +50,7 @@ export function Showcase() {
       <div className="sticky top-0 flex h-screen w-full items-center overflow-hidden">
         {enabled && near ? (
           <div className="absolute inset-0">
-            <VehicleScene progress={progress} />
+            <VehicleScene progress={progress} vehicleSrc={vehicleSrc} />
           </div>
         ) : (
           <VehicleFallback />

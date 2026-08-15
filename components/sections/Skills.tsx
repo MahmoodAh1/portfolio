@@ -6,7 +6,7 @@ import { skillGroups } from "@/content/skills";
 
 export function Skills() {
   return (
-    <Section id="skills" className="border-t border-border/60">
+    <Section id="skills">
       <SectionHeading
         eyebrow="Skills"
         title="The Utility Belt"

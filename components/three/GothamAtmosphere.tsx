@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import type { Group } from "three";
 import { Backdrop, Skyline, Fog, Rain, BatSignalBeam } from "./atmosphere-parts";
 
@@ -36,6 +37,9 @@ export default function GothamAtmosphere() {
       style={{ background: "transparent" }}
     >
       <ParallaxScene />
+      <EffectComposer>
+        <Bloom mipmapBlur intensity={0.7} luminanceThreshold={0.35} luminanceSmoothing={0.3} />
+      </EffectComposer>
     </Canvas>
   );
 }

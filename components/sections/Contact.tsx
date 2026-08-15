@@ -8,7 +8,7 @@ import { site, hasBooking, activeSocials } from "@/content/site";
 
 export function Contact() {
   return (
-    <Section id="contact" className="border-t border-border/60">
+    <Section id="contact">
       <Reveal>
         <div className="panel relative overflow-hidden rounded-2xl p-8 sm:p-12">
           {/* Projected bat-signal */}

@@ -8,7 +8,7 @@ import { site } from "@/content/site";
 
 export function Work({ projects }: { projects: Project[] }) {
   return (
-    <Section id="work" className="border-t border-border/60">
+    <Section id="work">
       <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
         <SectionHeading
           eyebrow="Selected work"

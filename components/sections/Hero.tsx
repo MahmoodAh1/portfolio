@@ -185,9 +185,16 @@ export function Hero({
             </div>
           </div>
 
-          {/* The reveal — cowl over portrait, cursor is the bat-signal */}
-          <div className="relative mx-auto aspect-square w-full max-w-md lg:max-w-none">
-            <div className="panel perspure relative h-full w-full overflow-hidden rounded-2xl">
+          {/* The reveal — cowl over portrait, cursor is the bat-signal.
+              No frame: the canvas is feathered into the scene with a radial mask. */}
+          <div className="relative mx-auto aspect-square w-full max-w-md lg:max-w-none lg:scale-110">
+            <div
+              className="perspure relative h-full w-full"
+              style={{
+                WebkitMaskImage: "radial-gradient(circle at 50% 46%, #000 50%, transparent 75%)",
+                maskImage: "radial-gradient(circle at 50% 46%, #000 50%, transparent 75%)",
+              }}
+            >
               {use3D ? (
                 <HeroReveal
                   portraitSrc={portraitSrc}
@@ -197,15 +204,10 @@ export function Hero({
               ) : (
                 <RevealFallback portraitSrc={portraitSrc} />
               )}
-
-              {/* Dossier corner labels */}
-              <div className="pointer-events-none absolute inset-0 p-4 font-mono text-[10px] uppercase tracking-widest text-faint">
-                <span className="absolute left-4 top-4">subject</span>
-                <span className="absolute right-4 top-4 text-signal">status: active</span>
-                <span className="absolute bottom-4 left-4 text-muted">M. A. Sajjad</span>
-                <span className="absolute bottom-4 right-4 animate-breathe">move to reveal</span>
-              </div>
             </div>
+            <span className="pointer-events-none absolute bottom-1 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-[0.28em] text-faint">
+              <span className="animate-breathe">move to reveal</span>
+            </span>
           </div>
         </div>
       </Container>

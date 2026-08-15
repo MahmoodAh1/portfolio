@@ -22,6 +22,7 @@ const CANDIDATES = {
   logo: ["bat-logo.svg", "bat-logo.png"],
   cowl: ["cowl.glb", "cowl.png", "cowl.svg"],
   portrait: ["me.jpg", "me.png", "me.webp"],
+  vehicle: ["batmobile.glb", "vehicle.glb", "car.glb"],
 } as const;
 
 export type AssetKind = keyof typeof CANDIDATES;

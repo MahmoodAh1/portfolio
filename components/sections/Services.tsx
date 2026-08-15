@@ -7,7 +7,7 @@ import { services } from "@/content/services";
 
 export function Services() {
   return (
-    <Section id="services" className="border-t border-border/60">
+    <Section id="services">
       <SectionHeading
         eyebrow="Services"
         title="What I Deploy"
