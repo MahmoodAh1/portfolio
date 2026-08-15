@@ -62,7 +62,7 @@ export function Showcase({ vehicleSrc }: { vehicleSrc: string | null }) {
               <span className="font-mono text-xs uppercase tracking-[0.24em] text-signal">
                 The Machine
               </span>
-              <h2 className="font-display mt-4 text-balance text-4xl font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-5xl">
+              <h2 className="font-display mt-4 pb-1 text-balance text-4xl font-bold leading-[1.16] tracking-[-0.02em] text-foreground sm:text-5xl">
                 Built like everything I ship.
               </h2>
               <p className="mt-4 max-w-sm leading-relaxed text-muted">

@@ -5,6 +5,7 @@ import { useReducedMotion } from "motion/react";
 import { Container } from "@/components/ui/Container";
 import { Scramble } from "@/components/fx/Scramble";
 import { Portrait3D } from "@/components/fx/Portrait3D";
+import { BatMark } from "@/components/fx/BatMark";
 import { site, hasBooking } from "@/content/site";
 import { ArrowRight, ArrowUpRight, Calendar } from "@/components/ui/icons";
 
@@ -66,21 +67,24 @@ export function Hero({
     : { href: "#contact", label: "Start a project", external: false, icon: <ArrowRight width={16} height={16} /> };
 
   return (
-    <section id="reveal" className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
+    <section id="reveal" className="relative pt-32 pb-20 sm:pt-40 sm:pb-28">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 grid-backdrop" />
 
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <div
-              className="hero-anim hero-eyebrow inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 font-mono text-xs text-muted backdrop-blur"
+              className="hero-anim hero-eyebrow inline-flex items-center gap-2.5 rounded-full border border-signal/30 bg-surface/70 px-4 py-2 text-sm backdrop-blur"
               style={{ opacity: 0 }}
             >
-              <span className="text-signal">◆</span>
-              <Scramble text={`${site.role.toLowerCase().replace(/\s+/g, "-")} · Tarquen AI`} start="mount" />
+              <BatMark className="h-4 w-4 text-signal" />
+              <span className="text-muted">AI Engineer at</span>
+              <span className="font-display font-bold tracking-tight text-signal">
+                <Scramble text="Tarquen AI" start="mount" />
+              </span>
             </div>
 
-            <h1 className="font-display mt-6 text-balance text-[2.7rem] font-bold leading-[1.08] tracking-[-0.02em] text-foreground sm:text-6xl md:text-[4.3rem]">
+            <h1 className="font-display mt-6 pb-1 text-balance text-[2.7rem] font-bold leading-[1.16] tracking-[-0.02em] text-foreground sm:text-6xl md:text-[4.3rem]">
               {LEAD.map((w) => (
                 <Fragment key={w}>
                   <span className="hero-anim hero-word inline-block" style={{ opacity: 0 }}>

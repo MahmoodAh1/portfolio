@@ -46,7 +46,7 @@ export function Portrait3D({
   const hasCut = Boolean(cut) || !needsCutout;
 
   return (
-    <div className="relative mx-auto aspect-[4/5] w-full max-w-sm lg:max-w-md">
+    <div className="relative mx-auto aspect-[3/4] w-full max-w-md lg:max-w-lg">
       {/* amber backlight */}
       <div
         aria-hidden
@@ -55,7 +55,7 @@ export function Portrait3D({
         <div
           className="h-4/5 w-4/5 rounded-full blur-3xl"
           style={{
-            background: "radial-gradient(closest-side, rgba(242,180,58,0.30), transparent 72%)",
+            background: "radial-gradient(closest-side, rgba(242,180,58,0.32), transparent 72%)",
           }}
         />
       </div>
@@ -69,8 +69,12 @@ export function Portrait3D({
             className="h-full w-full object-contain object-bottom"
             style={
               hasCut
-                ? { filter: "drop-shadow(0 26px 40px rgba(0,0,0,0.6))" }
+                ? {
+                    filter:
+                      "contrast(1.06) saturate(1.05) brightness(1.02) drop-shadow(0 30px 50px rgba(0,0,0,0.62))",
+                  }
                 : {
+                    filter: "contrast(1.05) saturate(1.04) brightness(1.02)",
                     WebkitMaskImage:
                       "radial-gradient(circle at 50% 42%, #000 54%, transparent 78%)",
                     maskImage:

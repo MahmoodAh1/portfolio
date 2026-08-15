@@ -34,4 +34,4 @@ export function resolveAsset(kind: AssetKind): string | null {
 }
 
 /** GitHub avatar used for the hero portrait until a hi-res `me.jpg` is added. */
-export const AVATAR_URL = "https://avatars.githubusercontent.com/MahmoodAh1?size=460";
+export const AVATAR_URL = "https://avatars.githubusercontent.com/MahmoodAh1?size=800";
