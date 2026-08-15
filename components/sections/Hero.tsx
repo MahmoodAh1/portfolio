@@ -90,7 +90,7 @@ export function Hero({
               <Scramble text={`${site.role.toLowerCase().replace(/\s+/g, "-")} · Tarquen AI`} start="mount" />
             </div>
 
-            <h1 className="font-display mt-6 text-balance text-[2.6rem] font-semibold uppercase leading-[1.02] tracking-tight text-foreground sm:text-6xl md:text-[4.1rem]">
+            <h1 className="font-display mt-6 text-balance text-[2.7rem] font-bold leading-[1.0] tracking-[-0.02em] text-foreground sm:text-6xl md:text-[4.3rem]">
               {LEAD.map((w) => (
                 <Fragment key={w}>
                   <span className="hero-anim hero-word inline-block" style={{ opacity: 0 }}>
@@ -148,7 +148,7 @@ export function Hero({
               </a>
               <a
                 href="#work"
-                className="hero-anim hero-cta grad-border group inline-flex items-center justify-center gap-2 rounded-md border border-border bg-surface/60 px-5 py-3 text-sm text-foreground transition-colors duration-200 hover:text-signal"
+                className="hero-anim hero-cta btn-ghost group inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm"
                 style={{ opacity: 0 }}
               >
                 View work

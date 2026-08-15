@@ -1,17 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Oswald, Archivo, JetBrains_Mono } from "next/font/google";
+import { Syne, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
 
-// Chiselled, architectural display face for the Dark-Knight headers.
-const displayFont = Oswald({
-  variable: "--font-oswald",
+// Editorial-premium display face — characterful, gallery-grade, not a template.
+const displayFont = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["600", "700", "800"],
 });
 
-const bodyFont = Archivo({
-  variable: "--font-archivo",
+const bodyFont = Hanken_Grotesk({
+  variable: "--font-hanken",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });

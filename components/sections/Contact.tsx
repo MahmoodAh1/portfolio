@@ -27,7 +27,7 @@ export function Contact() {
 
           <div className="relative max-w-2xl">
             <Eyebrow>Contact</Eyebrow>
-            <h2 className="font-display mt-4 text-balance text-3xl font-semibold uppercase tracking-tight text-foreground sm:text-4xl">
+            <h2 className="font-display mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Light the signal.
             </h2>
             <p className="mt-4 text-pretty leading-relaxed text-muted">

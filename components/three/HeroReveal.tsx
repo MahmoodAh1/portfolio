@@ -40,7 +40,7 @@ function paintEmblem(ctx: CanvasRenderingContext2D) {
   ctx.clearRect(0, 0, SIZE, SIZE);
   ctx.fillStyle = "#0c0e12";
   ctx.fillRect(0, 0, SIZE, SIZE);
-  const s = (SIZE * 0.72) / 120;
+  const s = (SIZE * 0.82) / 120;
   const o = (SIZE - 120 * s) / 2;
   const path = new Path2D();
   path.addPath(new Path2D(BAT_PATH), new DOMMatrix([s, 0, 0, s, o, o]));
@@ -94,9 +94,9 @@ function RevealScene({ portraitSrc, cowlSrc, onError }: SceneProps) {
   const uniforms = useMemo(
     () => ({
       uTex: { value: cover },
-      uPointer: { value: new THREE.Vector2(0, 0.05) },
-      uRadius: { value: 0.17 },
-      uSoft: { value: 0.09 },
+      uPointer: { value: new THREE.Vector2(0, 0.04) },
+      uRadius: { value: 0.2 },
+      uSoft: { value: 0.13 },
       uSignal: { value: new THREE.Color("#f2b43a") },
     }),
     [cover],
@@ -152,12 +152,12 @@ function RevealScene({ portraitSrc, cowlSrc, onError }: SceneProps) {
 
     if (m) {
       const pv = m.uniforms.uPointer.value as THREE.Vector2;
-      pv.x += (tx - pv.x) * 0.08;
-      pv.y += (ty - pv.y) * 0.08;
+      pv.x += (tx - pv.x) * 0.1;
+      pv.y += (ty - pv.y) * 0.1;
     }
     if (g) {
-      g.rotation.y += (state.pointer.x * 0.12 - g.rotation.y) * 0.05;
-      g.rotation.x += (-state.pointer.y * 0.1 - g.rotation.x) * 0.05;
+      g.rotation.y += (state.pointer.x * 0.16 - g.rotation.y) * 0.06;
+      g.rotation.x += (-state.pointer.y * 0.14 - g.rotation.x) * 0.06;
     }
   });
 

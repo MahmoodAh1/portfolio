@@ -24,7 +24,7 @@ export function Skills() {
                     <span className="font-mono text-xs text-signal">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="font-display text-base font-semibold uppercase tracking-wide text-foreground">
+                    <h3 className="font-display text-lg font-bold tracking-tight text-foreground">
                       {group.label}
                     </h3>
                   </div>

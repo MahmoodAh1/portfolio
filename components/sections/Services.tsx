@@ -29,7 +29,7 @@ export function Services() {
                     className="h-px flex-1 bg-gradient-to-r from-edge/50 to-transparent transition-colors duration-300 group-hover:from-signal/60"
                   />
                 </div>
-                <h3 className="font-display relative mt-5 text-lg font-semibold uppercase tracking-wide text-foreground">
+                <h3 className="font-display relative mt-5 text-xl font-bold tracking-tight text-foreground">
                   {service.title}
                 </h3>
                 <p className="relative mt-3 text-sm leading-relaxed text-muted">

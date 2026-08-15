@@ -6,6 +6,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Skills } from "@/components/sections/Skills";
 import { Services } from "@/components/sections/Services";
 import { Work } from "@/components/sections/Work";
+import { Showcase } from "@/components/sections/Showcase";
 import { Contact } from "@/components/sections/Contact";
 import { CursorAura } from "@/components/fx/CursorAura";
 import { ScrollProgress } from "@/components/fx/ScrollProgress";
@@ -48,6 +49,7 @@ export default async function Home() {
         <Skills />
         <Services />
         <Work projects={projects} />
+        <Showcase />
         <Contact />
       </main>
       <Footer />

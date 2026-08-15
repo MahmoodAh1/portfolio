@@ -70,7 +70,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-signal">
           {project.category}
         </span>
-        <h3 className="font-display mt-2 text-xl font-semibold uppercase tracking-wide text-foreground">
+        <h3 className="font-display mt-2 text-xl font-bold tracking-tight text-foreground">
           <Link href={`/work/${project.slug}`} className="relative z-20 after:absolute after:inset-0">
             {project.title}
           </Link>
