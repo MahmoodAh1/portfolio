@@ -358,6 +358,19 @@ body::before {
   animation: breathe 3.6s ease-in-out infinite;
 }
 
+@keyframes portrait-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.3deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0.3deg);
+  }
+}
+.animate-portrait-float {
+  animation: portrait-float 6s ease-in-out infinite;
+}
+
 @keyframes signal-sweep {
   0% {
     transform: translateX(-120%) skewX(-12deg);

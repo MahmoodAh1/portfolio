@@ -52,9 +52,6 @@ export function Footer() {
           <p>
             © {year} {site.name}. All rights reserved.
           </p>
-          <p className="font-mono">
-            Built with Next.js · Three.js · anime.js · Motion
-          </p>
         </div>
       </Container>
     </footer>

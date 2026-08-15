@@ -10,7 +10,7 @@ export function Skills() {
       <SectionHeading
         eyebrow="Skills"
         title="The Utility Belt"
-        description="The tools I reach for — chosen deliberately, not by reflex. Every engagement uses the smallest set that clears the bar."
+        description="The tools I reach for, picked on purpose rather than by reflex. Every project uses the smallest set that does the job well."
       />
 
       <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

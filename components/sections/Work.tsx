@@ -13,7 +13,7 @@ export function Work({ projects }: { projects: Project[] }) {
         <SectionHeading
           eyebrow="Selected work"
           title="Case Files"
-          description="Real projects, pulled live from GitHub. Each one is production-shaped — models and pipelines with the software and observability around them."
+          description="Real projects, pulled live from GitHub. Each one is built for production: models and pipelines with the software and observability around them."
         />
         <Reveal className="hidden sm:block">
           <a

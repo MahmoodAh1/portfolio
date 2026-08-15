@@ -34,8 +34,9 @@ const MARQUEE = [
 
 export default async function Home() {
   const projects = await getProjects();
-  const cowlSrc = resolveAsset("cowl");
-  const portraitSrc = resolveAsset("portrait") ?? AVATAR_URL;
+  const portraitProvided = resolveAsset("portrait");
+  const portraitSrc = portraitProvided ?? AVATAR_URL;
+  const needsCutout = !portraitProvided;
   const logoSrc = resolveAsset("logo");
   const vehicleSrc = resolveAsset("vehicle");
 
@@ -47,7 +48,7 @@ export default async function Home() {
       <CursorAura />
       <Nav logoSrc={logoSrc} />
       <main className="relative z-10 flex-1">
-        <Hero cowlSrc={cowlSrc} portraitSrc={portraitSrc} />
+        <Hero portraitSrc={portraitSrc} needsCutout={needsCutout} />
         <Marquee items={MARQUEE} />
         <Skills />
         <Services />

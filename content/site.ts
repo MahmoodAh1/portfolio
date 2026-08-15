@@ -14,7 +14,7 @@ export const site = {
   role: "AI Engineer",
   // Short, sharp value proposition (used in hero + metadata).
   description:
-    "I build production AI systems — agents, data pipelines, and the software around them — for teams that need them to actually ship.",
+    "I build production AI systems that actually ship. Agents, data pipelines, and the full software around them.",
   // Deployment URL (update to a custom domain when connected).
   url: "https://portfolio-eight-tawny-94.vercel.app",
 

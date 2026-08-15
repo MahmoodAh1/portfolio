@@ -1,19 +1,12 @@
 "use client";
 
-import { Fragment, useEffect, useState } from "react";
-import dynamic from "next/dynamic";
+import { Fragment, useEffect } from "react";
 import { useReducedMotion } from "motion/react";
 import { Container } from "@/components/ui/Container";
 import { Scramble } from "@/components/fx/Scramble";
-import { RevealFallback } from "@/components/fx/RevealFallback";
-import { useWebGL } from "@/components/three/useWebGL";
+import { Portrait3D } from "@/components/fx/Portrait3D";
 import { site, hasBooking } from "@/content/site";
 import { ArrowRight, ArrowUpRight, Calendar } from "@/components/ui/icons";
-
-// The WebGL cowl reveal is client-only and lazy; the CSS mask reveal is the fallback.
-const HeroReveal = dynamic(() => import("@/components/three/HeroReveal"), {
-  ssr: false,
-});
 
 const LEAD = ["I", "build"];
 const TAIL = ["that", "actually", "ship."];
@@ -24,16 +17,13 @@ const STATS: [string, string][] = [
 ];
 
 export function Hero({
-  cowlSrc,
   portraitSrc,
+  needsCutout,
 }: {
-  cowlSrc: string | null;
   portraitSrc: string;
+  needsCutout: boolean;
 }) {
   const reduce = useReducedMotion();
-  const { enabled } = useWebGL();
-  const [portraitError, setPortraitError] = useState(false);
-  const use3D = enabled && !portraitError;
 
   useEffect(() => {
     let cancelled = false;
@@ -90,7 +80,7 @@ export function Hero({
               <Scramble text={`${site.role.toLowerCase().replace(/\s+/g, "-")} · Tarquen AI`} start="mount" />
             </div>
 
-            <h1 className="font-display mt-6 text-balance text-[2.7rem] font-bold leading-[1.0] tracking-[-0.02em] text-foreground sm:text-6xl md:text-[4.3rem]">
+            <h1 className="font-display mt-6 text-balance text-[2.7rem] font-bold leading-[1.08] tracking-[-0.02em] text-foreground sm:text-6xl md:text-[4.3rem]">
               {LEAD.map((w) => (
                 <Fragment key={w}>
                   <span className="hero-anim hero-word inline-block" style={{ opacity: 0 }}>
@@ -131,9 +121,9 @@ export function Hero({
               className="hero-anim hero-sub mt-7 max-w-xl text-pretty text-lg leading-relaxed text-muted"
               style={{ opacity: 0 }}
             >
-              Agentic systems, data and content pipelines, and the full-stack
-              software around them — designed, shipped, and kept running to a
-              senior engineering bar.
+              I design, build, and keep alive the AI systems teams actually run
+              in production. Agentic systems, data and content pipelines, and the
+              full-stack software around them.
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -185,29 +175,9 @@ export function Hero({
             </div>
           </div>
 
-          {/* The reveal — cowl over portrait, cursor is the bat-signal.
-              No frame: the canvas is feathered into the scene with a radial mask. */}
-          <div className="relative mx-auto aspect-square w-full max-w-md lg:max-w-none lg:scale-110">
-            <div
-              className="perspure relative h-full w-full"
-              style={{
-                WebkitMaskImage: "radial-gradient(circle at 50% 46%, #000 50%, transparent 75%)",
-                maskImage: "radial-gradient(circle at 50% 46%, #000 50%, transparent 75%)",
-              }}
-            >
-              {use3D ? (
-                <HeroReveal
-                  portraitSrc={portraitSrc}
-                  cowlSrc={cowlSrc}
-                  onPortraitError={() => setPortraitError(true)}
-                />
-              ) : (
-                <RevealFallback portraitSrc={portraitSrc} />
-              )}
-            </div>
-            <span className="pointer-events-none absolute bottom-1 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-[0.28em] text-faint">
-              <span className="animate-breathe">move to reveal</span>
-            </span>
+          {/* Portrait as a floating 3D cutout (background removed). */}
+          <div className="relative flex justify-center">
+            <Portrait3D src={portraitSrc} needsCutout={needsCutout} />
           </div>
         </div>
       </Container>

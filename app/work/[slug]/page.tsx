@@ -25,7 +25,7 @@ export async function generateMetadata({
   const project = await getProjectBySlug(slug);
   if (!project) return {};
 
-  const title = `${project.title} — ${project.category}`;
+  const title = `${project.title} · ${project.category}`;
   const description = `${project.tagline} ${project.problem}`.slice(0, 200);
   return {
     title,

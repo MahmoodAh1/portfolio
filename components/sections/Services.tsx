@@ -11,7 +11,7 @@ export function Services() {
       <SectionHeading
         eyebrow="Services"
         title="What I Deploy"
-        description="Four ways I help teams get AI and software into production — with the discipline of someone who's shipped and maintained it."
+        description="Four ways I help teams get AI and software into production, with the discipline of someone who has shipped and maintained it."
       />
 
       <div className="mt-14 grid gap-5 sm:grid-cols-2">

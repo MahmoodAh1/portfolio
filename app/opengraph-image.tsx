@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = `${site.name} — ${site.role}`;
+export const alt = `${site.name} · ${site.role}`;
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -61,7 +61,7 @@ export default function OpengraphImage() {
             I build production AI systems that actually ship.
           </div>
           <div style={{ display: "flex", fontSize: "30px", color: "#9aa3ad", maxWidth: "900px" }}>
-            {site.name} — agents, pipelines, and the software around them.
+            {site.name}. Agents, pipelines, and the software around them.
           </div>
         </div>
 
