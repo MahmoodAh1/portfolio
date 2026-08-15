@@ -30,9 +30,9 @@ export const site = {
   ] satisfies SocialLink[],
 
   nav: [
+    { label: "Skills", href: "#skills" },
     { label: "Services", href: "#services" },
     { label: "Work", href: "#work" },
-    { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },
   ],
 } as const;

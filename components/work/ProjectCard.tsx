@@ -38,17 +38,18 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       whileHover={reduce ? undefined : { y: -6 }}
       transition={{ type: "spring", stiffness: 300, damping: 24 }}
       style={reduce ? undefined : { rotateX, rotateY, transformPerspective: 900 }}
-      className="grad-border group relative flex h-full flex-col rounded-xl border border-border bg-surface p-6 sm:p-7"
+      className="panel group relative flex h-full flex-col rounded-xl p-6 sm:p-7"
     >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{ boxShadow: "0 0 80px -28px var(--accent-glow)" }}
+        style={{ boxShadow: "0 0 80px -28px var(--signal-glow)" }}
       />
 
-      <div className="flex items-center justify-between">
-        <span className="text-gradient font-mono text-sm font-semibold">
-          {String(index + 1).padStart(2, "0")}
+      <div className="relative flex items-center justify-between">
+        <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-faint">
+          case file
+          <span className="text-signal">{String(index + 1).padStart(2, "0")}</span>
         </span>
         <div className="flex items-center gap-2.5 text-faint">
           {meta && meta.stars > 0 && (
@@ -58,18 +59,18 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             </span>
           )}
           {project.liveUrl && (
-            <span className="rounded border border-accent/30 px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-accent">
+            <span className="rounded border border-signal/40 px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-signal">
               Live
             </span>
           )}
         </div>
       </div>
 
-      <div className="mt-5">
-        <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
+      <div className="relative mt-5">
+        <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-signal">
           {project.category}
         </span>
-        <h3 className="font-display mt-2 text-xl font-semibold text-foreground">
+        <h3 className="font-display mt-2 text-xl font-semibold uppercase tracking-wide text-foreground">
           <Link href={`/work/${project.slug}`} className="relative z-20 after:absolute after:inset-0">
             {project.title}
           </Link>
@@ -77,7 +78,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         <p className="mt-2 text-sm leading-relaxed text-muted">{project.tagline}</p>
       </div>
 
-      <ul className="mt-5 flex flex-wrap gap-2">
+      <ul className="relative mt-5 flex flex-wrap gap-2">
         {project.stack.slice(0, 5).map((s) => (
           <li key={s}>
             <Tag>{s}</Tag>
@@ -85,12 +86,12 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         ))}
       </ul>
 
-      <div className="mt-auto pt-6">
+      <div className="relative mt-auto pt-6">
         <div className="flex items-center justify-between border-t border-border pt-4">
           <div className="flex items-center gap-3 text-xs text-faint">
             {meta?.language && (
               <span className="inline-flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-accent" />
+                <span className="h-2 w-2 rounded-full bg-signal" />
                 {meta.language}
               </span>
             )}
@@ -102,7 +103,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
               target="_blank"
               rel="noreferrer noopener"
               aria-label={`${project.title} on GitHub`}
-              className="grid h-8 w-8 place-items-center rounded-md border border-border text-muted transition-colors hover:border-accent/50 hover:text-accent"
+              className="grid h-8 w-8 place-items-center rounded-md border border-border text-muted transition-colors hover:border-signal/50 hover:text-signal"
             >
               <Github width={15} height={15} />
             </a>
@@ -112,7 +113,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label={`${project.title} live site`}
-                className="grid h-8 w-8 place-items-center rounded-md border border-border text-muted transition-colors hover:border-accent/50 hover:text-accent"
+                className="grid h-8 w-8 place-items-center rounded-md border border-border text-muted transition-colors hover:border-signal/50 hover:text-signal"
               >
                 <ExternalLink width={15} height={15} />
               </a>
@@ -124,7 +125,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       <ArrowUpRight
         width={18}
         height={18}
-        className="pointer-events-none absolute right-6 top-6 text-faint opacity-0 transition-all duration-300 group-hover:text-accent group-hover:opacity-100"
+        className="pointer-events-none absolute right-6 top-6 text-faint opacity-0 transition-all duration-300 group-hover:text-signal group-hover:opacity-100"
       />
     </motion.article>
   );

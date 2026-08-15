@@ -15,12 +15,12 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#070a13",
+          background: "#0a0b0d",
           backgroundImage:
-            "radial-gradient(900px 460px at 82% -12%, rgba(45,224,212,0.20), transparent), radial-gradient(760px 420px at 12% 110%, rgba(155,140,255,0.18), transparent), linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+            "radial-gradient(900px 460px at 82% -12%, rgba(242,180,58,0.18), transparent), radial-gradient(760px 420px at 12% 110%, rgba(58,71,86,0.24), transparent), linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
           backgroundSize: "auto, auto, 56px 56px, 56px 56px",
           padding: "72px",
-          color: "#e6ebf2",
+          color: "#e8eaed",
           fontFamily: "sans-serif",
         }}
       >
@@ -33,9 +33,9 @@ export default function OpengraphImage() {
               width: "64px",
               height: "64px",
               borderRadius: "12px",
-              border: "1px solid #1b2130",
-              background: "#0b0d11",
-              color: "#2de0d4",
+              border: "1px solid #232a33",
+              background: "#101216",
+              color: "#f2b43a",
               fontSize: "30px",
               fontWeight: 700,
             }}
@@ -48,7 +48,7 @@ export default function OpengraphImage() {
               fontSize: "22px",
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#2de0d4",
+              color: "#f2b43a",
               fontFamily: "monospace",
             }}
           >
@@ -60,12 +60,12 @@ export default function OpengraphImage() {
           <div style={{ display: "flex", fontSize: "72px", fontWeight: 700, lineHeight: 1.05, maxWidth: "1000px" }}>
             I build production AI systems that actually ship.
           </div>
-          <div style={{ display: "flex", fontSize: "30px", color: "#99a3b4", maxWidth: "900px" }}>
+          <div style={{ display: "flex", fontSize: "30px", color: "#9aa3ad", maxWidth: "900px" }}>
             {site.name} — agents, pipelines, and the software around them.
           </div>
         </div>
 
-        <div style={{ display: "flex", gap: "12px", fontSize: "22px", color: "#626b7d", fontFamily: "monospace" }}>
+        <div style={{ display: "flex", gap: "12px", fontSize: "22px", color: "#5b636d", fontFamily: "monospace" }}>
           <span>Python</span>
           <span>·</span>
           <span>FastAPI</span>

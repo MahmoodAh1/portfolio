@@ -1,8 +1,11 @@
 import { site, activeSocials } from "@/content/site";
 import { Container } from "@/components/ui/Container";
+import { MarkLogo } from "@/components/fx/MarkLogo";
+import { resolveAsset } from "@/lib/assets";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const logoSrc = resolveAsset("logo");
 
   return (
     <footer className="relative z-10 border-t border-border bg-surface/40">
@@ -10,8 +13,8 @@ export function Footer() {
         <div className="flex flex-col gap-8 py-12 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-sm">
             <div className="flex items-center gap-2.5">
-              <span className="grad-border grid h-8 w-8 place-items-center rounded-md bg-surface font-mono text-sm font-semibold text-accent">
-                MA
+              <span className="hairline grid h-8 w-8 place-items-center rounded-md bg-surface p-1.5 text-signal">
+                <MarkLogo src={logoSrc} className="h-full w-full" />
               </span>
               <span className="font-display text-sm font-medium text-foreground">{site.name}</span>
             </div>
@@ -29,7 +32,7 @@ export function Footer() {
                   href={s.url}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="text-sm text-muted transition-colors hover:text-accent"
+                  className="text-sm text-muted transition-colors hover:text-signal"
                 >
                   {s.label}
                   {s.handle ? <span className="text-faint"> · @{s.handle}</span> : null}
@@ -50,7 +53,7 @@ export function Footer() {
             © {year} {site.name}. All rights reserved.
           </p>
           <p className="font-mono">
-            Built with Next.js · anime.js · Motion
+            Built with Next.js · Three.js · anime.js · Motion
           </p>
         </div>
       </Container>

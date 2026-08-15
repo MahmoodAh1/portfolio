@@ -38,7 +38,7 @@ export async function generateMetadata({
 function Block({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{label}</h2>
+      <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-signal">{label}</h2>
       <div className="mt-3 text-pretty leading-relaxed text-muted">{children}</div>
     </div>
   );
@@ -63,7 +63,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
             <Reveal>
               <Link
                 href="/#work"
-                className="group inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-accent"
+                className="group inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-signal"
               >
                 <ArrowLeft
                   width={15}
@@ -76,7 +76,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
 
             <div className="mt-8 max-w-3xl">
               <Reveal>
-                <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-signal">
                   {project.category}
                 </span>
               </Reveal>
@@ -97,7 +97,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                     href={project.repoUrl}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="inline-flex items-center gap-2 rounded-md border border-border bg-surface px-4 py-2 text-sm text-foreground transition-colors hover:border-accent/50 hover:text-accent"
+                    className="inline-flex items-center gap-2 rounded-md border border-border bg-surface px-4 py-2 text-sm text-foreground transition-colors hover:border-signal/50 hover:text-signal"
                   >
                     <Github width={15} height={15} />
                     View source
@@ -107,7 +107,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                       href={project.liveUrl}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="inline-flex items-center gap-2 rounded-md border border-border bg-surface px-4 py-2 text-sm text-foreground transition-colors hover:border-accent/50 hover:text-accent"
+                      className="inline-flex items-center gap-2 rounded-md border border-border bg-surface px-4 py-2 text-sm text-foreground transition-colors hover:border-signal/50 hover:text-signal"
                     >
                       <ExternalLink width={15} height={15} />
                       Live
@@ -122,7 +122,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                     )}
                     {meta?.language && (
                       <span className="inline-flex items-center gap-1.5">
-                        <span className="h-2 w-2 rounded-full bg-accent" />
+                        <span className="h-2 w-2 rounded-full bg-signal" />
                         {meta.language}
                       </span>
                     )}
@@ -154,7 +154,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                     <ul className="grid gap-2 sm:grid-cols-2">
                       {project.highlights.map((h) => (
                         <li key={h} className="flex items-start gap-2.5 text-sm text-muted">
-                          <span aria-hidden className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                          <span aria-hidden className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-signal" />
                           {h}
                         </li>
                       ))}
@@ -166,13 +166,13 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
               <aside className="space-y-8 lg:sticky lg:top-24 lg:self-start">
                 <Reveal>
                   <div className="rounded-xl border border-border bg-surface p-6">
-                    <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent">Role</h2>
+                    <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-signal">Role</h2>
                     <p className="mt-3 text-sm leading-relaxed text-muted">{project.role}</p>
                   </div>
                 </Reveal>
                 <Reveal>
                   <div className="rounded-xl border border-border bg-surface p-6">
-                    <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent">Stack</h2>
+                    <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-signal">Stack</h2>
                     <ul className="mt-4 flex flex-wrap gap-2">
                       {project.stack.map((s) => (
                         <li key={s}>
@@ -211,7 +211,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                 </div>
                 <Link
                   href="/#contact"
-                  className="btn-grad inline-flex shrink-0 items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold"
+                  className="btn-signal inline-flex shrink-0 items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold"
                 >
                   Get in touch
                   <ArrowUpRight width={16} height={16} />

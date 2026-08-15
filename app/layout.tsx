@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
-import { Space_Grotesk, Manrope, JetBrains_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Oswald, Archivo, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
 
-const displayFont = Space_Grotesk({
-  variable: "--font-space-grotesk",
+// Chiselled, architectural display face for the Dark-Knight headers.
+const displayFont = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
 });
 
-const bodyFont = Manrope({
-  variable: "--font-manrope",
+const bodyFont = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -58,13 +59,17 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#0a0b0d",
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
       className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-bg text-foreground selection:text-white">
+      <body className="min-h-full flex flex-col bg-bg text-foreground">
         {/*
           Resilience: anime.js (hero) and Motion (scroll reveals) render initial
           `opacity:0` inline styles on the server. Without JS those would stay
